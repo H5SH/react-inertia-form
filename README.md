@@ -9,7 +9,7 @@ InertiaForm component that is similar to formik but uses the useForm hook by ine
 
 ## How To Use
 
-`
+```
 import { InertiaForm, LabelField, Form } from './InertiaForm';
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
 }
 
 export default App;
-`
+```
 
 ## InertiaForm
 
