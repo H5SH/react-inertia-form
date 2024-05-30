@@ -1,0 +1,10 @@
+example
+.editorconfig
+.eslintignore
+.eslintrc
+.prettierrc
+.travis.yml
+src
+node_modules
+package-lock.json
+yarn.lock
