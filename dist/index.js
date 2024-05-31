@@ -1,5 +1,5 @@
-var react = require('react');
-var react$1 = require('@inertiajs/react');
+import React, { createContext, useEffect, useContext, Fragment } from 'react';
+import { useForm } from '@inertiajs/react';
 
 function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function (n) {
@@ -11,14 +11,14 @@ function _extends() {
   }, _extends.apply(null, arguments);
 }
 
-var FormContext = react.createContext(null);
+var FormContext = createContext(null);
 var InertiaForm = function InertiaForm(_ref) {
   var initialValues = _ref.initialValues,
     onSubmit = _ref.onSubmit,
     _ref$enableReInitiali = _ref.enableReInitialization,
     enableReInitialization = _ref$enableReInitiali === void 0 ? false : _ref$enableReInitiali,
     children = _ref.children;
-  var form = react$1.useForm(initialValues);
+  var form = useForm(initialValues);
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit(form.data);
@@ -27,7 +27,7 @@ var InertiaForm = function InertiaForm(_ref) {
     var _extends2;
     form.setData(_extends({}, form.data, (_extends2 = {}, _extends2[e.target.name] = e.target.value, _extends2)));
   }
-  react.useEffect(function () {
+  useEffect(function () {
     enableReInitialization && form.setData(initialValues);
   }, [initialValues]);
   return /*#__PURE__*/React.createElement(FormContext.Provider, {
@@ -49,7 +49,7 @@ var Form = function Form(_ref2) {
   }, children);
 };
 function useInertiaForm() {
-  return react.useContext(FormContext);
+  return useContext(FormContext);
 }
 var LabeledDropdown = function LabeledDropdown(_ref3) {
   var formateLabel = _ref3.formateLabel,
@@ -66,7 +66,7 @@ var LabeledDropdown = function LabeledDropdown(_ref3) {
     _ref3$selectClassName = _ref3.selectClassName,
     selectClassName = _ref3$selectClassName === void 0 ? 'form-select' : _ref3$selectClassName,
     _onChange = _ref3.onChange;
-  var _useContext = react.useContext(FormContext),
+  var _useContext = useContext(FormContext),
     data = _useContext.data,
     errors = _useContext.errors,
     setData = _useContext.setData;
@@ -105,7 +105,7 @@ var LabelField = function LabelField(_ref4, props) {
     fieldClassName = _ref4$fieldClassName === void 0 ? '' : _ref4$fieldClassName,
     placeHolder = _ref4.placeHolder,
     _onChange2 = _ref4.onChange;
-  var _useContext2 = react.useContext(FormContext),
+  var _useContext2 = useContext(FormContext),
     data = _useContext2.data,
     errors = _useContext2.errors,
     setData = _useContext2.setData;
@@ -143,7 +143,7 @@ var LabelTextArea = function LabelTextArea(_ref5, props) {
     textareaClassName = _ref5$textareaClassNa === void 0 ? '' : _ref5$textareaClassNa,
     placeHolder = _ref5.placeHolder,
     _onChange3 = _ref5.onChange;
-  var _useContext3 = react.useContext(FormContext),
+  var _useContext3 = useContext(FormContext),
     data = _useContext3.data,
     errors = _useContext3.errors,
     setData = _useContext3.setData;
@@ -165,10 +165,5 @@ var LabelTextArea = function LabelTextArea(_ref5, props) {
   }, errors[name]));
 };
 
-exports.Form = Form;
-exports.InertiaForm = InertiaForm;
-exports.LabelField = LabelField;
-exports.LabelTextArea = LabelTextArea;
-exports.LabeledDropdown = LabeledDropdown;
-exports.useInertiaForm = useInertiaForm;
-//# sourceMappingURL=index.js.map
+export { Form, InertiaForm, LabelField, LabelTextArea, LabeledDropdown, useInertiaForm };
+//# sourceMappingURL=index.modern.js.map

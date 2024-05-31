@@ -1,5 +1,4 @@
-//import { useForm } from "@inertiajs/inertia-react"
-import { createContext, useContext, useEffect } from "react"
+import React, { createContext, useContext, useEffect } from "react"
 import { useForm } from "@inertiajs/react"
 
 const FormContext = createContext(null)
