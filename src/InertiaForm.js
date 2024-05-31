@@ -83,7 +83,7 @@ export const LabelField = ({ initialValue, disabled, name = '', type = 'text', e
     )
 }
 
-export const LabelTextArea = ({ name = '', rows = 4, cols = 50, errorClassName = 'text-danger', labelClassName = 'form-label', label = '', textareaclassName = 'form-control', placeHolder, onChange }, props) => {
+export const LabelTextArea = ({ name = '', rows = 4, cols = 5, errorClassName = 'text-danger', labelClassName = 'form-label', label = '', textareaclassName = 'form-control', placeHolder, onChange }, props) => {
     const { data, errors, setData } = useContext(FormContext)
     return (
         <>

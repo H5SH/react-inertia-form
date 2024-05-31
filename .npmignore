@@ -2,5 +2,4 @@ src
 node_modules
 package-lock.json
 yarn.lock
-webpack.config.js
 .babelrc

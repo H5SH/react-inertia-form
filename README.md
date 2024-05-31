@@ -53,11 +53,11 @@ InertiaForm component sets the context using useForm hook and initial values.
 
 ### props
 
-|         name         | data type | required |
-|----------------------|-----------|----------|
-|initialValues         |  object   |   true   |
-|  onSubmit            | function  |   true   |
-|enableReInitialization| boolean   |   false  |
+|         name         | data type | required | defaultValues|
+|----------------------|-----------|----------|--------------|
+|initialValues         |  object   |   true   |  undefined   |
+|  onSubmit            | function  |   true   |  undefined   |
+|enableReInitialization| boolean   |   false  |    false     |
 
 ## Form
 
@@ -69,15 +69,16 @@ Renders a labled dropdown
 
 ### props
 
-|         name       | data type | required |
-|--------------------|-----------|----------|
-|        list        |   array   |  true    |
-|        name        |   string  |  true    |
-|        label       |   string  |  false   |
-|   errorClassName   |   string  |  false   |
-|   labelClassName   |   string  |  false   |
-|   selectClassName  |   string  |  false   |
-|   onChange         | function  |  false   |
+|         name       | data type | required | defaultValues |
+|--------------------|-----------|----------|---------------|
+|        list        |   array   |  true    |      []       |
+|        name        |   string  |  true    |      ''       |
+|        label       |   string  |  false   |      ''       |
+|   errorClassName   |   string  |  false   |  text-danger  |
+|   labelClassName   |   string  |  false   |  form-label   |
+|   selectClassName  |   string  |  false   |  form-select  |
+|   onChange         | function  |  false   |   undefined   |
+|  formateLabel      | function  |  false   |   undefined   | 
 
 ### Formate label example
 
@@ -102,33 +103,33 @@ Renders a labled dropdown
 
 ### props
 
-|         name       | data type | required |
-|--------------------|-----------|----------|
-|        disabled    |   boolean |  false   |
-|        name        |   string  |  true    |
-|        label       |   string  |  false   |
-|        type        |   string  |  false   |
-|     placeholder    |   string  |  false   |
-|   errorClassName   |   string  |  false   |
-|   labelClassName   |   string  |  false   |
-|   fieldClassName   |   string  |  false   |
-|   onChange         | function  |  false   |
+|         name       | data type | required | defaultValues |
+|--------------------|-----------|----------|---------------|
+|        disabled    |   boolean |  false   |   undefined   |
+|        name        |   string  |  true    |      ''       |
+|        label       |   string  |  false   |      ''       |
+|        type        |   string  |  false   |     text      |  
+|     placeholder    |   string  |  false   |   undefined   |
+|   errorClassName   |   string  |  false   |   text-danger |
+|   labelClassName   |   string  |  false   |   form-label  |
+|   fieldClassName   |   string  |  false   |  form-control |
+|   onChange         | function  |  false   |   undefined   |
 
 ## LabelTextArea
 
 ### props
 
-|         name       | data type | required |
-|--------------------|-----------|----------|
-|        rows        |   integer |  false   |
-|        cols        |   integer |  false   |
-|        name        |   string  |  true    |
-|        label       |   string  |  false   |
-|     placeholder    |   string  |  false   |
-|   errorClassName   |   string  |  false   |
-|   labelClassName   |   string  |  false   |
-|  textareaClassName |   string  |  false   |
-|   onChange         | function  |  false   |
+|         name       | data type | required | defaultValues |
+|--------------------|-----------|----------|---------------|
+|        rows        |   integer |  false   |      4        |
+|        cols        |   integer |  false   |      5        |
+|        name        |   string  |  true    |      ''       |
+|        label       |   string  |  false   |      ''       |
+|     placeholder    |   string  |  false   |   undefined   |
+|   errorClassName   |   string  |  false   |  text-danger  |
+|   labelClassName   |   string  |  false   |  form-label   |
+|  textareaClassName |   string  |  false   |  form-control |
+|   onChange         | function  |  false   |  undefined    |
 
 ## License
 
