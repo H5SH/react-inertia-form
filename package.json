@@ -1,6 +1,6 @@
 {
   "name": "inertiajs-react-form",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "H5SH",
   "description": "Inertia form component identical to formik but uses inertia useForm in the background",
   "license": "MIT",

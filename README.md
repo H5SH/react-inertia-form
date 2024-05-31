@@ -79,8 +79,7 @@ Renders a labled dropdown
 |   selectClassName  |   string  |  false   |
 |   onChange         | function  |  false   |
 
-<<<<<<< HEAD
-Formate label example
+### Formate label example
 
 ```jsx
 <LabeledDropdown
