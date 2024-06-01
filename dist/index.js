@@ -1,4 +1,4 @@
-import React,{ Fragment, useEffect, useContext, createContext } from 'react';
+import React,{ useEffect, useContext, createContext, Fragment } from 'react';
 import { useForm, usePage } from '@inertiajs/react';
 
 function _extends() {
@@ -18,7 +18,22 @@ var InertiaForm = function InertiaForm(_ref) {
     _ref$enableReInitiali = _ref.enableReInitialization,
     enableReInitialization = _ref$enableReInitiali === void 0 ? false : _ref$enableReInitiali,
     children = _ref.children;
-  var form = useForm(initialValues);
+  var _useForm = useForm(initialValues),
+    data = _useForm.data,
+    setData = _useForm.setData,
+    reset = _useForm.reset,
+    processing = _useForm.processing,
+    progress = _useForm.progress,
+    wasSuccessful = _useForm.wasSuccessful,
+    recentlySuccessful = _useForm.recentlySuccessful,
+    transform = _useForm.transform,
+    isDirty = _useForm.isDirty,
+    setDefaults = _useForm.setDefaults,
+    setError = _useForm.setError,
+    submit = _useForm.submit,
+    hasErrors = _useForm.hasErrors,
+    cancel = _useForm.cancel,
+    clearErrors = _useForm.clearErrors;
   var errors = usePage().props.errors;
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,16 +47,46 @@ var InertiaForm = function InertiaForm(_ref) {
     enableReInitialization && setData(initialValues);
   }, [initialValues]);
   return /*#__PURE__*/React.createElement(FormContext.Provider, {
-    value: _extends({}, form, {
+    value: {
+      data: data,
+      setData: setData,
+      reset: reset,
+      processing: processing,
+      progress: progress,
+      wasSuccessful: wasSuccessful,
+      recentlySuccessful: recentlySuccessful,
+      transform: transform,
+      isDirty: isDirty,
+      setDefaults: setDefaults,
+      setError: setError,
+      submit: submit,
+      hasErrors: hasErrors,
+      cancel: cancel,
+      clearErrors: clearErrors,
       errors: errors,
       handleSubmit: handleSubmit,
       handleChange: handleChange
-    })
-  }, children(_extends({}, form, {
+    }
+  }, children({
+    data: data,
+    setData: setData,
+    reset: reset,
+    processing: processing,
+    progress: progress,
+    wasSuccessful: wasSuccessful,
+    recentlySuccessful: recentlySuccessful,
+    transform: transform,
+    isDirty: isDirty,
+    setDefaults: setDefaults,
+    setError: setError,
+    submit: submit,
+    hasErrors: hasErrors,
+    cancel: cancel,
+    clearErrors: clearErrors,
     errors: errors,
     handleSubmit: handleSubmit,
     handleChange: handleChange
-  })));
+  }));
 };
 var Form = function Form(_ref2) {
   var children = _ref2.children;

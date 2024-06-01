@@ -5,7 +5,7 @@ const FormContext = createContext(null)
 
 export const InertiaForm = ({ initialValues, onSubmit, enableReInitialization = false, children }) => {
 
-    const form = useForm(initialValues)
+    const { data, setData, reset, processing, progress, wasSuccessful, recentlySuccessful, transform, isDirty, setDefaults, setError, submit, hasErrors, cancel, clearErrors } = useForm(initialValues)
     const { errors } = usePage().props
 
     function handleSubmit(e) {
@@ -20,6 +20,7 @@ export const InertiaForm = ({ initialValues, onSubmit, enableReInitialization = 
         })
     }
 
+
     // Children should be a function
     useEffect(() => {
         enableReInitialization && setData(initialValues)
@@ -27,9 +28,47 @@ export const InertiaForm = ({ initialValues, onSubmit, enableReInitialization = 
 
     return (
         <FormContext.Provider
-            value={{ ...form, errors, handleSubmit, handleChange }}
+            value={{ 
+                data, 
+                setData, 
+                reset, 
+                processing, 
+                progress, 
+                wasSuccessful, 
+                recentlySuccessful, 
+                transform, 
+                isDirty, 
+                setDefaults, 
+                setError, 
+                submit, 
+                hasErrors, 
+                cancel, 
+                clearErrors, 
+                errors, 
+                handleSubmit, 
+                handleChange 
+            }}
         >
-            {children({ ...form, errors: errors, handleSubmit: handleSubmit, handleChange: handleChange })}
+            {children({
+                data: data,
+                setData: setData,
+                reset: reset,
+                processing: processing,
+                progress: progress,
+                wasSuccessful: wasSuccessful,
+                recentlySuccessful: recentlySuccessful,
+                transform: transform,
+                isDirty: isDirty,
+                setDefaults: setDefaults,
+                setError: setError,
+                submit: submit,
+                hasErrors: hasErrors,
+                cancel: cancel,
+                clearErrors: clearErrors, 
+                errors: errors, 
+                handleSubmit: handleSubmit, 
+                handleChange: handleChange
+            })}
         </FormContext.Provider>
     )
 }
@@ -57,7 +96,7 @@ export const LabeledDropdown = ({ formateLabel, list = [], name = '', errorClass
         <>
             {label && <label className={labelClassName}>{label}</label>}
             <select name={name} value={formateLabel ? JSON.stringify(data[name]) : data[name]} className={selectClassName} onChange={(e) => {
-                const value = formateLabel ? JSON.parse(e.target.value): e.target.value
+                const value = formateLabel ? JSON.parse(e.target.value) : e.target.value
                 onChange ? onChange(value) : setData({ ...data, [name]: value })
             }}
             >
